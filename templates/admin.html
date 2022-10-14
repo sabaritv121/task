@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load crispy_forms_filters %}
+
+
+
+<div class="col-lg-10">
+    {% for message in messages %}
+    <div class="alert alert-primary" role="alert">
+        {{message}}
+    </div>
+    {% endfor %}
+    <div class="card">
+        <div class="card-header">
+            <strong class="card-title">MARKS</strong>
+        </div>
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">SI No</th>
+                    <th scope="col">name</th>
+
+
+                    <th scope="col">Age</th>
+                <th scope="col">Mobile number</th>
+
+
+
+                </thead>
+                <tbody>
+                {% for n in w %}
+                <tr>
+                    <th scope="row">{{forloop.counter}}</th>
+                    <td>{{n.name}}</td>
+
+                    <td>{{n.age}}</td>
+                     <td>{{n.contact_no}}</td>
+
+
+
+
+
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+

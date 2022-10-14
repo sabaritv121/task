@@ -1,0 +1,70 @@
+{% extends 'student_base.html' %}
+{% block content %}
+{% load crispy_forms_filters %}
+<div class="col-md-8">
+    {% for message in messages %}
+    <div class="alert alert-primary" role="alert">
+        {{message}}
+    </div>
+    {% endfor %}
+    <div class="card">
+        <div class="card-header">
+            <i class="fa fa-user"></i><strong class="card-title pl-2">My Profile </strong>
+        </div>
+        {% for u in profile %}
+        <div class="card-body">
+            <div class="mx-auto d-block">
+
+                <h5 class="text-sm-center mt-2 mb-1">{{u.name}}</h5>
+
+                <div class="location text-sm-center"><i class="fa fa-map-marker"></i> {{u.dob}}</div>
+                <div class="location text-sm-center"><i class="fa fa-phone"></i> {{u.contact_no}}</div>
+                <hr>
+                <div class="ml-5 mt-2 mb-1">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <label>Name</label>
+                        </div>
+                        <div class="col-lg-2">
+                            <label>: {{u.name}}</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <label> Age</label>
+                        </div>
+                        <div class="col-lg-2">
+                            <label>: {{u.age}}</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <label>Profile picture</label>
+                        </div>
+                        <div class="col-lg-2">
+                            <label>: <img src="{{ u.profile_pic.url }}" style="width:100px"/></label>
+                        </div>
+<!--                    </div>-->
+<!--                    <div class="row">-->
+<!--                        <div class="col-lg-6">-->
+<!--                            <label>Recent Vaccinations</label>-->
+<!--                        </div>-->
+<!--                        <div class="col-lg-2">-->
+<!--                            <label>:{{u.recent_vaccinations}}</label>-->
+<!--                        </div>-->
+                    </div>
+                </div>
+
+            </div>
+
+            <hr>
+            <div class="card-text text-sm-center">
+                <a href="{% url 'profile_update' u.id %}">
+                    <button type="button" class="btn btn-primary ">Update</button>
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
