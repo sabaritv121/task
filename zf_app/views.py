@@ -152,7 +152,7 @@ def markview(request):
 
 #markupdate
 @login_required(login_url='login_view')
-def student_update(request,id):
+def mark_update(request,id):
     n = marks.objects.get(id=id)
     if request.method == 'POST':
         form = AddMarks(request.POST,request.FILES or None, instance=n)
