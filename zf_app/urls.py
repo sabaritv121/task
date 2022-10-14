@@ -11,7 +11,8 @@ urlpatterns = [
     path("studreg",views.student_reg,name="studreg"),
     path("admindash", views.admindash, name="admindash"),
     path("studentview",views.studentview,name="studentview"),
-    path('studentupdate/<int:id>/',views.student_update,name='studentupdate'),
+    path('mark_update/<int:id>/',views.mark_update,name='mark_update'),
+
     path('delete/<int:id>', views.delete_student_view, name='delete'),
     path("addmark",views.addmark,name='addmark'),
     path("markview",views.markview,name='markview'),
